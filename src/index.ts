@@ -1,6 +1,9 @@
 import printOperator from "./Messages";
+import DateNow from "./DateNow";
 
 function main() {
+
+    console.log(DateNow());
 
     let names = ["+", "-", "*", "/"];
     let operator_rand = Math.floor(Math.random() * names.length);
