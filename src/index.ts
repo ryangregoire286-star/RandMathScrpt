@@ -1,5 +1,6 @@
 import printOperator from "./Messages";
 import DateNow from "./DateNow";
+import FileReader from "./FileReader";
 
 function main() {
 
@@ -13,28 +14,45 @@ function main() {
     let num1 = Math.floor(Math.random() * 5);
     let num2 = Math.floor(Math.random() * 10);
 
-    switch(op) {
+    let command = null;
+
+    switch (op) {
 
         case "+":
-            console.log(`${num1} + ${num2} = ${num1 + num2}`);
+            command = `${num1} + ${num2} = ${num1 + num2}`;
+            console.log(command);
+
+            FileReader("AddNums.txt", command);
+
             break;
 
         case "-":
-            console.log(`${num1} - ${num2} = ${num1 - num2}`);
+
+            command = `${num1} - ${num2} = ${num1 - num2}`;
+            console.log(command);
+            FileReader("SubNums.txt", command);
+
             break;
 
+
         case "*":
-            console.log(`${num1} * ${num2} = ${num1 * num2}`);
+
+            command = `${num1} * ${num2} = ${parseFloat(String(num1 * num2)).toFixed(2)}`;
+            console.log(command);
+            FileReader("MulNums.txt", command);
+
             break;
 
         case "/":
 
-            console.log(`${num1} / ${num2} = ${parseFloat(String(num1 / num2)).toFixed(2)}`);
+            command = `${num1} / ${num2} = ${parseFloat(String(num1 / num2)).toFixed(2)}`;
+            console.log(command);
+            FileReader("DivNums.txt", command);
+
             break;
     }
 
     printOperator(op);
-
 }
 
 main();
